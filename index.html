@@ -3,57 +3,54 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <script src="https://kit.fontawesome.com/879121ee0e.js" crossorigin="anonymous"></script>
-    <title>Trip Planner - AI Assistant</title>
+    <title>Home- OptiTrip</title>
     <link rel="stylesheet" href="index.css">
 </head>
 <body>
-    <!-- Navigation Bar -->
-    <nav class="nav_bar">
+    <!-- Navbar -->
+    <nav class="navbar">
         <div class="logo">
-            <img src="./img/logo.png" alt="Logo" class="logo-image">
+            <img src="./img/logo.png" alt="OptiTrip Logo">
         </div>
-        <ul class="menu_bar">
-            <li><a href="#home" class="link">Home</a></li>
-            <li><a href="#about" class="link">About Us</a></li>
-            <li><a href="#contact" class="link">Contact</a></li>
-        </ul>
-        <div class="nav_btn">
-            <a href="login.html"><button class="login-btn btn">Login</button></a>
-            <a href="signup.html"><button class="signup-btn btn">Sign Up</button></a>
+        <div class="nav-links">
+            <button class="btn login">Log out</button>
+            <div class="user-profile">
+                <span>Sara</span>
+                <img src="./img/user-profile.png" alt="User Profile">
+            </div>
         </div>
     </nav>
 
-    <!-- Chatbot Section -->
-    <section id="home" class="chatbot_section">
-        <div class="chatbot_container">
-            <div class="chatbot_header">
-                <h1>Hi, I’m Sara!</h1>
-                <p>Your AI assistant for trip planning. Let’s create the perfect plan!</p>
+    <!-- Main Content -->
+    <div class="container">
+        <div class="left-section">
+            <h2>Your Next Destination?</h2>
+            <input type="text" placeholder="City..." class="city-input">
+            <button class="start-trip-btn">Start Planning Your Trip</button>
+        </div>
+
+        <div class="right-section">
+            <div class="customize-container">
+                <img src="./img/costumize.png" alt="costumize">
+                <h3>Fully customizable travel plans and efficient planning.</h3>
             </div>
-            <div class="chat_display">
-                <div id="chat_window" class="chat_window">
-                    <!-- Dynamic chat messages will appear here -->
-                </div>
-                <div class="chat_input">
-                    <input type="text" id="user_input" placeholder="Type your message..." />
-                    <button id="send_button"><i class="fa-solid fa-paper-plane"></i></button>
-                </div>
+            <div class="customize-container">
+                <img src="./img/restaurant.png" alt="costumize">
+                <h3>Tailored restaurant suggestions with cost transparency and user reviews.</h3>
+            </div>            
+            <div class="customize-container">
+                <img src="./img/transport.png" alt="costumize">
+                <h3>Real-time updates on public transport routes, bus numbers, metro lines, and fares.</h3>
+            </div>
+            <div class="customize-container">
+                <img src="./img/calendar.png" alt="costumize">
+                <h3>Integration with Google Calendar and reminders for all activities.</h3>
+            </div>
+            <div class="customize-container">
+                <img src="./img/file.png" alt="costumize">
+                <h3>Post-trip insights, including time saved and cost breakdown</h3>
             </div>
         </div>
-    </section>
-
-    <!-- About Section -->
-    <section id="about">
-        <h2>About Our Trip Planner</h2>
-        <p>Our platform helps you create personalized travel plans, with optimized itineraries, dining recommendations, transport integration, and more!</p>
-    </section>
-
-    <!-- Footer -->
-    <footer>
-        <p>&copy; 2025 Trip Planner. All rights reserved.</p>
-    </footer>
-
-    <script src="script.js"></script>
+    </div>
 </body>
 </html>
