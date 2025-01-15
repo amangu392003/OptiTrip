@@ -28,9 +28,4 @@ input.forEach((el) =>{
         console.log("blurring");
         e.target.placeholder=place; 
     });
-<<<<<<< HEAD
 })
-=======
-})
-
->>>>>>> 59bb3702b38198057dba68bb82f8e774bb6a6f75
