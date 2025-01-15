@@ -1,0 +1,61 @@
+:root{
+    --main-color: rgb(239,254,139);
+    --link-fonts: Arial, Helvetica, sans-serif;
+    --button-fonts: Verdana, Geneva, Tahoma, sans-serif;
+    --main-color2: rgb(51, 102, 153);
+}
+
+*{
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+}
+
+.wrapper{
+    height: 100vh;
+    overflow-y: auto;
+    overflow-x: hidden;
+    background-color: black;
+}
+
+.container{
+    width: 1300px;
+    height: 100%;
+    margin: 0px auto;
+    background-color: var(--main-color);
+    display: flex;
+    flex-direction: row;
+}
+
+.header{
+    text-align: center;
+    background-color: palegreen;
+    height: 80px;
+    width: 100%;
+    font-size: 60px;
+}
+
+.girl_video{
+    height: 100%;
+    width: 470px;
+    margin-top: 2rem;
+    background-color: tomato;
+}
+
+.boys_video{
+    height: 100%;
+    width: 470px;
+    background-color: violet;
+    margin-top: 2rem;
+}
+
+.intro{
+    margin-left: 2rem;
+    font-size: 25px;
+}
+
+.send_message , .end_chat{
+    height: 60px;
+    width: 200px;
+}
+
