@@ -1,0 +1,189 @@
+:root{
+    --main-color:rgb(239,254,139);
+    --background-color:rgb(17,17,17);
+}
+
+*{
+    padding: 0px;
+    margin: 0px;
+    box-sizing: border-box;
+    overflow-x: hidden;
+}
+
+.wrapper{
+    height: 800px;
+    width: 100vw;
+    background-color: var(--background-color);
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    background-image: url('./img/hero-icon-bg.svg');
+}
+
+.container{
+    width: 660px;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    overflow-x:visible;
+}
+
+.logo{
+    height: 160px;
+    width: 300px;
+    background-color: var(--background-color);
+    overflow-y: hidden;
+}
+
+.logo_image{
+    height: 100%;
+    width: 100%;
+    background-image: none;
+}
+
+.login_box{
+    background-color: rgb(17,17,17);
+    box-shadow: 0px 0px 13px 3px var(--main-color);
+    color: white;
+    height: 550px;
+    min-width:100%;
+    width: 90%;
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+    overflow-x:visible;
+    border-radius: 15px;
+}
+
+.login_intro{
+    font-size: 28px;
+    font-family: Arial, Helvetica, sans-serif;
+    margin-top: 15px;
+    padding-left: 25px;
+}
+
+.login_desc{
+    font-size: 19px;
+    padding-left: 25px;
+    margin-top: 10px;
+}
+
+.forward{
+    display: flex;
+    justify-content: center;
+    margin-top: 25px;
+    width: 100%;
+}
+
+.google_link{
+    text-decoration: none;
+}
+
+.google_image{
+    height: 40px;
+    width: 40px;
+}
+
+.login_with_google{
+    background-color: white;
+    margin: 0px auto;
+    display: flex;
+    justify-content: center;
+    border-width: 10px;
+    align-items: center;
+    font-size: 17px;
+    gap: 6px;
+    height: 50px;
+    width: 200px;
+    color: black;
+    border-radius: 13px;
+}
+
+.break_line{
+    margin-top: 25px;
+    margin-left: 12px;
+    display: flex;
+    gap: 10px;
+    padding: 0px 7px;
+}
+
+.br_tag{
+    margin-top: 7px;
+    height: 3px;
+    background-color: var(--main-color);
+    width: 39%;
+}
+
+.form{
+    margin-top: 17px;
+    height: 250px;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+}
+
+.email_address , .password_section{
+    width: 93%;
+    height: 50px;
+    margin: 20px 25px;
+}
+
+.email , .password{
+    border-radius: 8px;
+    border-width: 0px;
+    padding-left: 12px;
+    height: 100%;
+    width: 100%;
+    font-size: 18px;
+}
+
+.button_section{
+    display: flex;
+    position: relative;
+    justify-content: center;
+    align-items: center;
+    height: 80px;
+    width: 100%;
+}
+
+.forget , .login_btn{
+    height: 45px;
+    width: 150px;
+    border-width: 0px;
+    border-radius: 8px;
+    /* background-color: black;
+    border-color: var(--main-color);
+    color: var(--main-color); */
+    color: black;
+    background-color: var(--main-color);
+    font-size: 14px;
+}
+
+.forget{
+    position: absolute;
+    left: 28px;
+    top: 20px;
+}
+
+.login_btn{
+    position: absolute;
+    right: 25px;
+    top: 20px;
+}
+
+.last_section{
+    height: 50px;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-width: 2px;
+    gap: 20px;
+}
+
+.acc_create{
+    text-decoration: none;
+    color: var(--main-color);
+}
