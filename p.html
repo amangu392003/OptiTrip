@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ChatBot</title>
+    <link rel="stylesheet" href="p.css">
+</head>
+
+<body>
+    <div class="container">
+        <div class="left-section">
+            <h2>A little reminder that the trip you are planning is fully customizable, if you need anything, don't hesitate to ask to the advisor.</h2>
+        </div>
+
+        <div class="right-section">
+            <div id="chatContainer">
+                <div id="messageContainer">
+                </div>
+                <div id="inputContainer">
+                    <textarea id="userInput" placeholder="Escribe un mensaje..." rows="1"></textarea>
+                    <button id="queryButton">Enviar</button>
+                </div>
+            </div>
+        </div>
+
+
+    </div>
+
+
+
+
+    
+
+    <script>
+        function loadChatHistory() {
+            const history = localStorage.getItem('chatHistory');
+            if (history) {
+                const messages = JSON.parse(history);
+                messages.forEach(msg => addMessage(msg.text, msg.isUser));
+            }
+        }
+
+        async function query(data) {
+            try {
+                const response = await fetch(
+                    "https://api.stack-ai.com/inference/v0/run/455b65f3-9482-440c-95cf-51c641edd2f9/6789379e1fa868ce54b61323",
+                    {
+                        headers: {
+                            'Authorization': 'Bearer 6b01d905-6a8e-4910-82ad-362c53ed1e6e',
+                            'Content-Type': 'application/json',
+                        },
+                        method: "POST",
+                        body: JSON.stringify(data),
+                    }
+                );
+
+                if (!response.ok) {
+                    throw new Error('La respuesta de la red no fue correcta');
+                }
+
+                const result = await response.json();
+                return result;
+
+            } catch (error) {
+                console.error('Error durante la operación fetch:', error);
+            }
+        }
+
+        function formatText(text) {
+            let formattedText = text.replace(/-/g, '<br> ');
+
+            formattedText = formattedText.replace(/###/g, '<br>');
+
+            const boldRegex = /\*\*(.*?)\*\*/g;
+            formattedText = formattedText.replace(boldRegex, '<strong>$1</strong>');
+
+            return formattedText;
+        }
+
+        function addMessage(message, isUser) {
+            const messageContainer = document.getElementById('messageContainer');
+            const messageElement = document.createElement('div');
+            messageElement.classList.add('message');
+            messageElement.classList.add(isUser ? 'userMessage' : 'botMessage');
+
+            let formattedMessage = formatText(message);
+
+            messageElement.innerHTML = formattedMessage;
+
+            messageContainer.appendChild(messageElement);
+
+            messageContainer.scrollTop = messageContainer.scrollHeight;
+
+            saveChatHistory(message, isUser);
+        }
+
+        function saveChatHistory(message, isUser) {
+            const history = localStorage.getItem('chatHistory');
+            const messages = history ? JSON.parse(history) : [];
+            messages.push({ text: message, isUser: isUser });
+            localStorage.setItem('chatHistory', JSON.stringify(messages));
+        }
+
+        document.getElementById('queryButton').addEventListener('click', () => {
+            const userText = document.getElementById('userInput').value;
+
+            if (userText.trim() === "") {
+                alert("Por favor, ingresa un mensaje.");
+                return;
+            }
+
+            addMessage(userText, true);
+
+            document.getElementById('userInput').value = "";
+
+            query({ "user_id": "12345", "in-0": userText })
+                .then((response) => {
+                    const botMessage = response.outputs["out-0"] || "Lo siento, no pude entenderte.";
+                    addMessage(botMessage, false);
+                });
+        });
+
+        document.getElementById('userInput').addEventListener('keydown', (e) => {
+            if (e.key === 'Enter') {
+                e.preventDefault();
+                document.getElementById('queryButton').click();
+            }
+        });
+
+        window.onload = loadChatHistory;
+    </script>
+
+</body>
+
+</html>
