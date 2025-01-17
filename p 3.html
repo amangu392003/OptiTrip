@@ -11,7 +11,9 @@
 <body>
     <div class="container">
         <div class="left-section">
-            <h2>A little reminder that the trip you are planning is fully customizable, if you need anything, don't hesitate to ask to the advisor.</h2>
+            <button id="clearHistoryButton">Delete history</button>
+            <h2>A little reminder that the trip you are planning is fully customizable, if you need anything, don't
+                hesitate to ask to the advisor.</h2>
         </div>
 
         <div class="right-section">
@@ -19,8 +21,8 @@
                 <div id="messageContainer">
                 </div>
                 <div id="inputContainer">
-                    <textarea id="userInput" placeholder="Escribe un mensaje..." rows="1"></textarea>
-                    <button id="queryButton">Enviar</button>
+                    <textarea id="userInput" placeholder="Write your message ..." rows="1"></textarea>
+                    <button id="queryButton">Send</button>
                 </div>
             </div>
         </div>
@@ -31,9 +33,15 @@
 
 
 
-    
+
 
     <script>
+
+        document.getElementById('clearHistoryButton').addEventListener('click', () => {
+            localStorage.removeItem('chatHistory'); // Elimina el historial del almacenamiento local
+            document.getElementById('messageContainer').innerHTML = ''; // Limpia los mensajes del contenedor
+            alert('The history has been deleted.');
+        });
         function loadChatHistory() {
             const history = localStorage.getItem('chatHistory');
             if (history) {
